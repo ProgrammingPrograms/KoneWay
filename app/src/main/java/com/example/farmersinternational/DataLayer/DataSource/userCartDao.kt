@@ -3,7 +3,6 @@ package com.example.farmersinternational.DataLayer.DataSource
 import androidx.room.Delete
 import androidx.room.Query
 import androidx.room.Upsert
-import com.example.farmersinternational.DataLayer.DataModel.userCartModel
 import kotlinx.coroutines.flow.Flow
 
 interface userCartDataSource {

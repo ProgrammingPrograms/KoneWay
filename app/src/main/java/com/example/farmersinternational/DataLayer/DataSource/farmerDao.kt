@@ -4,13 +4,10 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Query
 import androidx.room.Upsert
-import com.example.farmersinternational.DataLayer.DataModel.notificationsModel
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 
 @Dao
-interface notificationsDataSource {
+interface notificationsDao {
 //should be main safe suspend
     @Query("SELECT * FROM notificationsModel")
   suspend fun fetchNotifications(): Flow<List<notificationsModel>>
