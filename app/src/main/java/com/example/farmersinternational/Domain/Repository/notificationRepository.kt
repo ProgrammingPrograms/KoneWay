@@ -2,7 +2,6 @@ package com.example.farmersinternational.Domain.Repository
 
 import android.content.Context
 import com.example.farmersinternational.DataLayer.DataModel.appDatabase
-import com.example.farmersinternational.DataLayer.DataModel.notificationsModel
 
 class notificationRepository(private val AppDatabase: appDatabase, context: Context){
 

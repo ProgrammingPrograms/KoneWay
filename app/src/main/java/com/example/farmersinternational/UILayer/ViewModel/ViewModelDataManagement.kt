@@ -3,9 +3,6 @@ package com.example.farmersinternational.UILayer.ViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.farmersinternational.DataLayer.DataModel.farmerModel
-import com.example.farmersinternational.DataLayer.DataModel.farmerPostModel
-import com.example.farmersinternational.DataLayer.DataModel.notificationsModel
-import com.example.farmersinternational.DataLayer.DataModel.userCartModel
 import com.example.farmersinternational.Domain.Repository.farmerRepository
 import com.example.farmersinternational.Domain.Repository.notificationRepository
 import com.example.farmersinternational.Domain.Repository.userCartRepository

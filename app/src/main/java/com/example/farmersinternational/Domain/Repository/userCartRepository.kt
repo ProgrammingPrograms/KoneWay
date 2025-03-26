@@ -2,7 +2,6 @@ package com.example.farmersinternational.Domain.Repository
 
 import android.content.Context
 import com.example.farmersinternational.DataLayer.DataModel.appDatabase
-import com.example.farmersinternational.DataLayer.DataModel.userCartModel
 
 class userCartRepository(private val Appdatabase: appDatabase, context: Context) {
 

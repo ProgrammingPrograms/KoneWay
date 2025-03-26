@@ -1,4 +1,4 @@
-package com.example.farmersinternational.DataLayer.Model
+package com.example.farmersinternational.DataLayer.ExternalModel
 
 data class User(
     val userId:Long,
@@ -8,8 +8,3 @@ data class User(
     val notifications: Int
 )
 
-//want the oder to be saved on the userprofile, whenever he looks at all previous orders
-//saved, persisted, orders(foodstuffs, farmer,distance,price)
-//user has access. get orders from user, get from orderentity whwhere
-
-notifications can help wotj the isercart

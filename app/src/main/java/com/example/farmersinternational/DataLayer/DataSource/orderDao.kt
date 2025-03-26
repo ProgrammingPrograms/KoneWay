@@ -8,7 +8,7 @@ import com.example.farmersinternational.DataLayer.DataModel.farmerModel
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface farmerDao {
+interface orderDao {
 
     @Query("SELECT * FROM FARMERMODEL Where id = :farmerID")
   suspend  fun getById(farmerID: String): Flow<List<farmerModel>>

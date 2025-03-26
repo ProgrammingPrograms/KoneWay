@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.Log
 import com.example.farmersinternational.DataLayer.DataModel.appDatabase
 import com.example.farmersinternational.DataLayer.DataModel.farmerModel
-import com.example.farmersinternational.DataLayer.DataModel.farmerPostModel
 import com.example.farmersinternational.supabase
 import io.github.jan.supabase.storage.UploadStatus
 import io.github.jan.supabase.storage.storage

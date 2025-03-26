@@ -4,19 +4,19 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.farmersinternational.DataLayer.DataSource.farmerDataSource
-import com.example.farmersinternational.DataLayer.DataSource.farmerPostDataSource
-import com.example.farmersinternational.DataLayer.DataSource.notificationsDataSource
-import com.example.farmersinternational.DataLayer.DataSource.userCartDataSource
+import com.example.farmersinternational.DataLayer.DataSource.orderDao
+import com.example.farmersinternational.DataLayer.DataSource.farmerPostDao
+import com.example.farmersinternational.DataLayer.DataSource.farmerDao
+import com.example.farmersinternational.DataLayer.DataSource.userCartDao
 
 @Database(entities = [farmerPostModel::class, notificationsModel::class,userCartModel::class,
         farmerModel::class], version = 6)
 abstract class appDatabase: RoomDatabase(){
 
-abstract fun getFarmerPostDataSource(): farmerPostDataSource
-    abstract fun getNotificationDataSource(): notificationsDataSource
-    abstract fun getUserCartDataSource(): userCartDataSource
-    abstract fun getFarmerDataSource(): farmerDataSource
+abstract fun getFarmerPostDataSource(): farmerPostDao
+    abstract fun getNotificationDataSource(): farmerDao
+    abstract fun getUserCartDataSource(): userCartDao
+    abstract fun getFarmerDataSource(): orderDao
 
   //can do a practice understanding this better
 

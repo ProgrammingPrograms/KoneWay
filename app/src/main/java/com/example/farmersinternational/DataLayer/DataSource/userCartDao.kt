@@ -5,7 +5,7 @@ import androidx.room.Query
 import androidx.room.Upsert
 import kotlinx.coroutines.flow.Flow
 
-interface userCartDataSource {
+interface userCartDao {
 
     @Query("SELECT * FROM USERCARTMODEL")
   suspend  fun fetchUserCartData(): Flow<List<userCartModel>>

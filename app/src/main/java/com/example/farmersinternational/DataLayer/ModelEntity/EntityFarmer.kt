@@ -3,7 +3,7 @@ package com.example.farmersinternational.DataLayer.ModelEntity
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.farmersinternational.DataLayer.Model.Farmer
+import com.example.farmersinternational.DataLayer.ExternalModel.Farmer
 
 @Entity(tableName = "EntityFarmer")
 data class EntityFarmer(
@@ -15,8 +15,14 @@ data class EntityFarmer(
     val emailAdress: String,
     val description:String,
     @ColumnInfo(defaultValue = "")
-    val postPhoto:String,
     val notifications: Int
 )
 
-
+fun EntityFarmer.asExternalModel() = Farmer(
+farmerId = farmerId,
+    profilePhoto =profilePhoto,
+    fullName = fullName,
+    emailAdress = emailAdress,
+    description = description,
+    notifications = notifications
+)
