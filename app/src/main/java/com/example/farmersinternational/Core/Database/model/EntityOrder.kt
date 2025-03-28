@@ -1,10 +1,10 @@
-package com.example.farmersinternational.DataLayer.ModelEntity
+package com.example.farmersinternational.Core.ModelEntity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
-import com.example.farmersinternational.DataLayer.ExternalModel.Order
+import com.example.farmersinternational.Core.ExternalModel.Order
 
 
 // Order of user or farmer after they ORder AND WANT TO SEE
@@ -24,7 +24,7 @@ data class EntityOrder(
     val userId: Long,
     val productId: Long,
     @ColumnInfo(defaultValue = "")
-    val price: List<EntityProduct> = emptyList(),
+    val price: Double,
     val date: Long
 )
 fun EntityOrder.asExternalModel() = Order(

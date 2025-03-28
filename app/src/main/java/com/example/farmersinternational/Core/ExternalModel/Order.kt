@@ -1,11 +1,11 @@
 package com.example.farmersinternational.DataLayer.ExternalModel
 
-import kotlinx.coroutines.channels.ProducerScope
+import com.example.farmersinternational.DataLayer.ModelEntity.EntityProduct
 
 data class Order(
     val orderId: Long,
     val userId: Long,
     val productId: Long,
-    val price: List<Product> = emptyList(),
+    val price: Double,
     val date: Long
 )

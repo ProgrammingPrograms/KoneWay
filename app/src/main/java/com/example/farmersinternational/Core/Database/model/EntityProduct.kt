@@ -1,10 +1,9 @@
-package com.example.farmersinternational.DataLayer.ModelEntity
+package com.example.farmersinternational.Core.ModelEntity
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
-import com.example.farmersinternational.DataLayer.ExternalModel.Product
-import kotlinx.coroutines.delay
+import com.example.farmersinternational.Core.ExternalModel.Product
 
 @Entity(tableName = "EntityProduct",
     foreignKeys = [ForeignKey(entity = EntityFarmer::class,
@@ -19,6 +18,7 @@ data class EntityProduct(
     val name: String,
     val price: Int,
     val description: String,
+     val fruitOrVegetable: Boolean,
     val isGmo: Boolean,
     val isOrganic: Boolean,
     val isGrownIn: String,
@@ -30,6 +30,7 @@ fun EntityProduct.asExternalModel()= Product(
     name = name,
     price = price,
     description = description,
+    fruitOrVegetable = fruitOrVegetable,
     isGmo = isGmo,
     isOrganic = isOrganic,
     isGrownIn = isGrownIn
