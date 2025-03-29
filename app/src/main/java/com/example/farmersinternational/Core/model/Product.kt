@@ -1,4 +1,4 @@
-package com.example.farmersinternational.DataLayer.ExternalModel
+package com.example.farmersinternational.Core.ExternalModel
 
 data class Product(
     val productId: Long,
