@@ -1,12 +1,12 @@
-package com.example.farmersinternational.Core.Dao
+package com.example.farmersinternational.Core.Database.Dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Upsert
-import com.example.farmersinternational.Core.ModelEntity.EntityFarmer
-import com.example.farmersinternational.Core.ModelEntity.EntityProduct
+import com.example.farmersinternational.Core.Database.model.EntityFarmer
+import com.example.farmersinternational.Core.Database.model.EntityProduct
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -16,7 +16,7 @@ interface ProductDao {
    suspend fun insertOrIgnorePoduct(entity: EntityProduct): Long
 
     @Upsert
-    fun createOrUpdateProduct(entity: EntityProduct): Long
+   suspend fun createOrUpdateProduct(entity: EntityProduct): Long
 
 
     @Query("SELECT " +
@@ -64,4 +64,5 @@ interface ProductDao {
             "ENTITYPRODUCT.IsGmo DESC," +
             "ENTITYPRODUCT.IsOrganic DESC ")
     fun getProductsSortByGmo(farmerIds: Set<Long>, productIds: Set<Long>): Flow<Map<List<EntityFarmer>, List<EntityProduct>>>
+
 }

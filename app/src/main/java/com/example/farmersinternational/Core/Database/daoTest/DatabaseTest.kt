@@ -32,8 +32,10 @@ fun setup() { //create tempdatabase for testing
     }
     farmerDao = temporaryDatabase.getFarmerDao()//get news dao from dbcuz u have to do th
     orderDao = temporaryDatabase.getOrderDao()//get topic dao from database
+    userDao = temporaryDatabase.getUserDao()
+    productDao = temporaryDatabase.getProductDao()
 
-    @After
+    @After //do after each test
     fun destroyTemporaryDatabase() = temporaryDatabase.close()
 }
 

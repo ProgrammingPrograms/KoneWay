@@ -1,4 +1,4 @@
-package com.example.farmersinternational.Core
+package com.example.farmersinternational.Core.Di
 
 import com.example.farmersinternational.Core.Database.Dao.FarmerDao
 import com.example.farmersinternational.Core.Database.Dao.OrderDao
@@ -11,9 +11,9 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 
 //dependancy injections for the daos to be accessed app wide
-@Module// helper -  tells dagger how to give you object
-@InstallIn(SingletonComponent::class)
-internal object DaosModule {
+@Module// helper -  HEY dagger heres how you give me object
+@InstallIn(SingletonComponent::class)//object available in whole app through a simngleComponent
+internal object DaoModule {
     @Provides // how to provide the daos
     fun providesFarmerDao(
         database: StructureOfLocalDatabase

@@ -1,4 +1,4 @@
-package com.example.farmersinternational.Core.Dao
+package com.example.farmersinternational.Core.Database.Dao
 
 import androidx.room.Dao
 import androidx.room.Delete
@@ -6,8 +6,8 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Upsert
-import com.example.farmersinternational.Core.ModelEntity.EntityFarmer
-import com.example.farmersinternational.Core.ModelEntity.EntityProduct
+import com.example.farmersinternational.Core.Database.model.EntityFarmer
+import com.example.farmersinternational.Core.Database.model.EntityProduct
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -18,7 +18,7 @@ interface FarmerDao {
 
 
     @Upsert
-    fun createOrUpdateFarmerAccount(entity: EntityFarmer): Long
+    suspend fun createOrUpdateFarmerAccount(entity: EntityFarmer): Long
 
 
     @Query("SELECT * FROM" +
@@ -62,9 +62,9 @@ interface FarmerDao {
             "(SELECT ENTITYFARMER.farmerId FROM ENTITYFARMER" +
             " WHERE " +
             "ENTITYFARMER.farmerId = :farmerId)")
-   fun removeFarmersProduct(farmerId: Long, productId:Long)
+  suspend fun removeFarmersProduct(farmerId: Long, productId:Long)
 
     @Delete
-    fun deleteFarmerAccount(farmerId: Long)
+   suspend fun deleteFarmerAccount(farmerId: Long)
 
 }

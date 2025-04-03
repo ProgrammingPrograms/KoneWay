@@ -1,9 +1,9 @@
-package com.example.farmersinternational.Core.ModelEntity
+package com.example.farmersinternational.Core.Database.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.farmersinternational.Core.ExternalModel.Farmer
+import com.example.farmersinternational.Core.model.Farmer
 
 @Entity(tableName = "EntityFarmer")
 data class EntityFarmer(

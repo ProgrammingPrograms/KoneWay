@@ -1,8 +1,8 @@
-package com.example.farmersinternational.Core.ModelEntity
+package com.example.farmersinternational.Core.Database.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.farmersinternational.Core.ExternalModel.User
+import com.example.farmersinternational.Core.model.User
 
 @Entity
 data class EntityUser(

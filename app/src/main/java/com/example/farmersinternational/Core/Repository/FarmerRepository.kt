@@ -8,13 +8,13 @@ import kotlinx.coroutines.flow.Flow
 
 interface farmerRepository {
 
-    suspend fun insertOrIgnore(model: Farmer): Long
-    fun createOrUpdateFarmerAccount(model: Farmer): Long
+    suspend fun insertOrIgnore(modelFarmer: Farmer): Long
+   suspend fun createOrUpdateFarmerAccount(modelFarmer: Farmer): Long
     fun getFarmerById(farmerId: Long): Flow<Farmer>
-    fun getFarmersByIds(farmerIds: Set<Long>): Flow<List<Farmer>>9
+    fun getFarmersByIds(farmerIds: Set<Long>): Flow<List<Farmer>>
     fun getFarmersProducts(farmerId: Long): Flow<List<Product>>
     fun getFarmersProductsSortedByGmo(farmerId: Long): Flow<List<Product>>
-    fun removeFarmersProduct(farmerId: Long, productId:Long)
+    suspend fun removeFarmersProduct(farmerId: Long, productId:Long)
     suspend fun deleteFarmerAccount(farmerId: Long)
 
 }
