@@ -1,6 +1,6 @@
-package com.example.farmersinternational.Core.model
+package com.example.farmersinternational.dataLayer.domainmodel
 
-import com.example.farmersinternational.Core.Database.model.EntityFarmer
+import com.example.farmersinternational.dataLayer.EntityModel.EntityFarmer
 
 
 data class Farmer(

@@ -2,16 +2,13 @@ package com.example.farmersinternational.UILayer.ViewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.farmersinternational.DataLayer.DataModel.farmerModel
-import com.example.farmersinternational.Domain.Repository.farmerRepository
-import com.example.farmersinternational.Domain.Repository.notificationRepository
-import com.example.farmersinternational.Domain.Repository.userCartRepository
-import com.example.farmersinternational.States.deleteAllState
-import com.example.farmersinternational.States.notificationDataState
-import com.example.farmersinternational.States.userCartDataState
-import com.example.farmersinternational.States.FarmerInfoAndPostUiState
-import com.example.farmersinternational.States.FarmerInfoUiState
-import com.example.farmersinternational.States.FarmerPostUiState
+import com.example.farmersinternational.dataLayer.buildDatabase.farmerModel
+import com.example.farmersinternational.presentationLayer.state.deleteAllState
+import com.example.farmersinternational.presentationLayer.state.notificationDataState
+import com.example.farmersinternational.presentationLayer.state.userCartDataState
+import com.example.farmersinternational.presentationLayer.state.FarmerInfoAndPostUiState
+import com.example.farmersinternational.presentationLayer.state.FarmerInfoUiState
+import com.example.farmersinternational.presentationLayer.state.FarmerPostUiState
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -20,10 +17,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.merge
-import kotlinx.coroutines.runBlocking
 import kotlin.time.Duration.Companion.seconds
 
 class farmersInformationManagementCRUD(FarmerRepository: farmerRepository,

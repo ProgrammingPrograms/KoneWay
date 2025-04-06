@@ -1,10 +1,10 @@
-package com.example.farmersinternational.Core.Di
+package com.example.farmersinternational.dataLayer.dependancyInjection
 
-import com.example.farmersinternational.Core.Database.Dao.FarmerDao
-import com.example.farmersinternational.Core.Database.Dao.OrderDao
-import com.example.farmersinternational.Core.Database.Dao.ProductDao
-import com.example.farmersinternational.Core.Database.Dao.UserDao
-import com.example.farmersinternational.Core.DataModel.StructureOfLocalDatabase
+import com.example.farmersinternational.dataLayer.dao.FarmerDao
+import com.example.farmersinternational.dataLayer.dao.OrderDao
+import com.example.farmersinternational.dataLayer.dao.ProductDao
+import com.example.farmersinternational.dataLayer.dao.UserDao
+import com.example.farmersinternational.dataLayer.buildDatabase.StructureOfLocalDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

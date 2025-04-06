@@ -4,9 +4,9 @@ import com.example.farmersinternational.Core.Database.Dao.FarmerDao
 import com.example.farmersinternational.Core.Database.model.EntityFarmer
 import com.example.farmersinternational.Core.Database.model.EntityProduct
 import com.example.farmersinternational.Core.Database.model.asExternalModel
-import com.example.farmersinternational.Core.model.Farmer
-import com.example.farmersinternational.Core.model.Product
-import com.example.farmersinternational.Core.model.asEntityModel
+import com.example.farmersinternational.Core.domainmodel.Farmer
+import com.example.farmersinternational.Core.domainmodel.Product
+import com.example.farmersinternational.Core.domainmodel.asEntityModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -14,7 +14,7 @@ import javax.inject.Inject
 // use case
 //ui
 
-class OfflineFirstFarmersRepository @Inject constructor(private val farmerdao: FarmerDao): farmerRepository {
+class OfflineFirstFarmersRepository @Inject constructor(private val farmerdao: FarmerDao): FarmerRepository {
 
 override suspend fun insertOrIgnore(modelFarmer: Farmer): Long =
         farmerdao.insertOrIgnore(modelFarmer.asEntityModel())

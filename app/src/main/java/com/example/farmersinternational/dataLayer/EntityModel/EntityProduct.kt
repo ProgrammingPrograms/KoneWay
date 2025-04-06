@@ -3,7 +3,7 @@ package com.example.farmersinternational.Core.Database.model
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
-import com.example.farmersinternational.Core.model.Product
+import com.example.farmersinternational.Core.domainmodel.Product
 
 @Entity(tableName = "EntityProduct",
     foreignKeys = [ForeignKey(entity = EntityFarmer::class,

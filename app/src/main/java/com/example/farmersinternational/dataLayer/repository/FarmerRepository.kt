@@ -1,12 +1,10 @@
 package com.example.farmersinternational.Core.Repository
 
-import com.example.farmersinternational.Core.Database.model.EntityFarmer
-import com.example.farmersinternational.Core.Database.model.EntityProduct
-import com.example.farmersinternational.Core.model.Farmer
-import com.example.farmersinternational.Core.model.Product
+import com.example.farmersinternational.Core.domainmodel.Farmer
+import com.example.farmersinternational.Core.domainmodel.Product
 import kotlinx.coroutines.flow.Flow
 
-interface farmerRepository {
+interface FarmerRepository {
 
     suspend fun insertOrIgnore(modelFarmer: Farmer): Long
    suspend fun createOrUpdateFarmerAccount(modelFarmer: Farmer): Long

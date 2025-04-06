@@ -1,8 +1,5 @@
 package com.example.farmersinternational.States
 
-import com.example.farmersinternational.DataLayer.DataModel.farmerModel
-import kotlinx.coroutines.flow.StateFlow
-
 data class FarmerPostUiState(
     val message: String? = null,
     val isLoading: Boolean = false,

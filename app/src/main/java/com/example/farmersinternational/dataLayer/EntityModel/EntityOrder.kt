@@ -4,7 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
-import com.example.farmersinternational.Core.model.Order
+import com.example.farmersinternational.Core.domainmodel.Order
 
 
 // Order of user or farmer after they ORder AND WANT TO SEE

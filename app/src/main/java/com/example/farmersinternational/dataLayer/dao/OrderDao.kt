@@ -16,7 +16,7 @@ interface OrderDao {
    suspend fun insertOrIgnoreOrder(entity: EntityOrder): Long//if same primary key
 
    @Upsert
-   suspend fun CreateOrUpdateOrder(entity: EntityOrder):Long
+   suspend fun createOrUpdateOrder(entity: EntityOrder):Long
 
    @Query("SELECT * FROM" +
            " ENTITYORDER " +

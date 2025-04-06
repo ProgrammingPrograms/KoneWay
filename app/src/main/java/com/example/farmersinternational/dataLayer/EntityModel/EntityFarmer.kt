@@ -3,7 +3,7 @@ package com.example.farmersinternational.Core.Database.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.farmersinternational.Core.model.Farmer
+import com.example.farmersinternational.Core.domainmodel.Farmer
 
 @Entity(tableName = "EntityFarmer")
 data class EntityFarmer(
