@@ -1,10 +1,10 @@
-package com.example.farmersinternational.Core.Database.model
+package com.example.farmersinternational.dataLayer.EntityModel
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
-import com.example.farmersinternational.Core.domainmodel.Order
+import com.example.farmersinternational.dataLayer.model.Order
 
 
 // Order of user or farmer after they ORder AND WANT TO SEE
