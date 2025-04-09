@@ -1,4 +1,4 @@
-package com.example.farmersinternational.dataLayer.dependancyInjection
+package com.example.farmersinternational.dataLayer.di
 
 import com.example.farmersinternational.dataLayer.dao.FarmerDao
 import com.example.farmersinternational.dataLayer.dao.OrderDao
@@ -10,11 +10,11 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 
-//dependancy injections for the daos to be accessed app wide
-@Module// helper -  HEY dagger heres how you give me object
-@InstallIn(SingletonComponent::class)//object available in whole app through a simngleComponent
+
+@Module
+@InstallIn(SingletonComponent::class)
 internal object DaoModule {
-    @Provides // how to provide the daos
+    @Provides
     fun providesFarmerDao(
         database: StructureOfLocalDatabase
     ): FarmerDao = database.getFarmerDao()
@@ -33,4 +33,4 @@ internal object DaoModule {
     fun providesUserDao(
         database: StructureOfLocalDatabase
     ): UserDao = database.getUserDao()
-}// allows appwide access to dependancies as singleton
+}
