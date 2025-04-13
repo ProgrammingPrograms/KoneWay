@@ -1,9 +1,9 @@
-package com.example.farmersinternational.dataLayer.RoomModel.EmbeddedClass
+package com.example.farmersinternational.dataLayer.roomModel.embeddedClass
 
 import androidx.room.Embedded
-import com.example.farmersinternational.dataLayer.RoomModel.EntityFarmer
-import com.example.farmersinternational.dataLayer.RoomModel.EntityProduct
-import com.example.farmersinternational.dataLayer.RoomModel.asExternalModel
+import com.example.farmersinternational.dataLayer.roomModel.EntityFarmer
+import com.example.farmersinternational.dataLayer.roomModel.EntityProduct
+import com.example.farmersinternational.dataLayer.roomModel.asExternalModel
 import com.example.farmersinternational.dataLayer.model.FarmerWithProduct
 
 class FarmerWithProductJoin(
