@@ -5,8 +5,10 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.example.farmersinternational.ui.theme.FarmersInternationalTheme
+import dagger.hilt.android.AndroidEntryPoint
 import io.github.jan.supabase.createSupabaseClient
 import io.github.jan.supabase.storage.Storage
+import javax.inject.Inject
 
 val supabase = createSupabaseClient(
     supabaseUrl = "https://ymfpyatyatdevhhpfrdt.supabase.co",
@@ -21,8 +23,10 @@ val supabase = createSupabaseClient(
 
 }
 
-
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    @Inject lateinit var randoRepo: MultiRepo
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
