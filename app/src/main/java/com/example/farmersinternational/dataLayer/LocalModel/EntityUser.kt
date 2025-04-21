@@ -1,4 +1,4 @@
-package com.example.farmersinternational.dataLayer.EntityModel
+package com.example.farmersinternational.dataLayer.roomModel
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -6,11 +6,11 @@ import com.example.farmersinternational.dataLayer.model.User
 
 @Entity
 data class EntityUser(
-    @PrimaryKey(autoGenerate = true) val userId: Long,
+    @PrimaryKey(autoGenerate = true) val userId: Long? = null,
     val fullName: String,
     val profilePhoto: String,
     val userOnFootOnBikeOnCar: Int,
-     val notification: Int,
+     val notification: Int? = null,
     )
 
 fun EntityUser.asExternalModel() = User(

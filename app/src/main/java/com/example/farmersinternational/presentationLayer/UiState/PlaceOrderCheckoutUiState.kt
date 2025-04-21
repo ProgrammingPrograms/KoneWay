@@ -1,12 +1,10 @@
-package com.example.farmersinternational.presentationLayer.state
+package com.example.farmersinternational.presentationLayer.UiState
 
 import com.example.farmersinternational.dataLayer.model.Order
 
-sealed interface PlaceOrderCheckoutUiState {
-    data object Loading: PlaceOrderCheckoutUiState
+sealed interface PlaceOrderCheckoutUiState { //during
     data class Success(val order: Order ): PlaceOrderCheckoutUiState
+    data class Error(val exception: Throwable):PlaceOrderCheckoutUiState
+    data object Loading: PlaceOrderCheckoutUiState
+
 }
-//name it the screens //
-//UiStates are named the screens
-// see hoow to sort the usecase of the users to be that whenever the user does xyz it tells the farmer
-//how many users are coming to them

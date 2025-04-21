@@ -1,4 +1,4 @@
-package com.example.farmersinternational.UILayer.ViewModel
+package com.example.farmersinternational.presentationLayer.ViewModel
 
 class HandlingErrors {
     fun getErrorMessage(exception: Exception, context: String? = null):String{

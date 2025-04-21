@@ -1,4 +1,4 @@
-package com.example.farmersinternational.dataLayer.EntityModel
+package com.example.farmersinternational.dataLayer.roomModel
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
@@ -12,8 +12,8 @@ import com.example.farmersinternational.dataLayer.model.Product
         onDelete = ForeignKey.CASCADE),
     ])
 data class EntityProduct(
- @PrimaryKey(autoGenerate = true)val productId: Long,
-    val farmerId:Long,
+ @PrimaryKey(autoGenerate = true)val productId: Long?= null,
+    val farmerId:Long?= null,
     val imageUrl: String,
     val name: String,
     val price: Int,

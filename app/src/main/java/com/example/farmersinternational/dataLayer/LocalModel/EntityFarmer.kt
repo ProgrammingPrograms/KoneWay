@@ -1,4 +1,4 @@
-package com.example.farmersinternational.dataLayer.EntityModel
+package com.example.farmersinternational.dataLayer.roomModel
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -7,7 +7,7 @@ import com.example.farmersinternational.dataLayer.model.Farmer
 
 @Entity(tableName = "EntityFarmer")
 data class EntityFarmer(
-    @PrimaryKey(autoGenerate = true) val farmerId: Long,
+    @PrimaryKey(autoGenerate = true) val farmerId: Long? = null,
 
     @ColumnInfo(defaultValue = "")
     val profilePhoto:String,
@@ -15,7 +15,7 @@ data class EntityFarmer(
     val emailAdress: String,
     val description:String,
     @ColumnInfo(defaultValue = "")
-    val notifications: Int
+    val notifications: Int? = null
 )
 
 fun EntityFarmer.asExternalModel() = Farmer(

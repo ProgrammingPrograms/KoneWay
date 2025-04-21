@@ -1,16 +1,16 @@
-package com.example.farmersinternational.dataLayer.domainmodel
+package com.example.farmersinternational.dataLayer.model
 
-import com.example.farmersinternational.dataLayer.EntityModel.EntityFarmer
+import com.example.farmersinternational.dataLayer.roomModel.EntityFarmer
 
 
 data class Farmer(
 
-    val farmerId:Long,
+    val farmerId:Long? = null,
 val profilePhoto:String,
 val fullName:String,
 val emailAdress: String,
 val description:String,
-    val notifications: Int
+    val notifications: Int? = null
 )
 
 fun Farmer.asEntityModel() = EntityFarmer(

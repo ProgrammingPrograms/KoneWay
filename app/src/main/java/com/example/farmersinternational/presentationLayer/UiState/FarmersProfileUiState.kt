@@ -1,9 +1,11 @@
-package com.example.farmersinternational.presentationLayer.state
+package com.example.farmersinternational.presentationLayer.UiState
 
-import com.example.farmersinternational.dataLayer.model.FarmerWithProduct
 import com.example.farmersinternational.dataLayer.model.Product
 
 sealed  interface FarmersProfileUiState {
-    data object Loading: FarmersProfileUiState
     data class Success(val farmersWithProducts: List<Product> = emptyList()):FarmersProfileUiState
+    data class Error(val exception: Throwable): FarmersProfileUiState
+    data object Loading: FarmersProfileUiState
+
+
 }
