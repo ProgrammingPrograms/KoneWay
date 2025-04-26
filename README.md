@@ -7,7 +7,6 @@
 <h2 align="left">KoneWay</h2>
 
 ###
--a
 <br clear="both">
 
 <h2 align="left">connecting city people with local farmers to buy fresh, homegrown fruit<br><br>This app lets city residents buy fresh fruit directly from local farmers—no middlemen involved. It's perfect for people who want to skip the supermarket and get high-quality, non-GMO produce they can trust. 🍏🍓<br>
