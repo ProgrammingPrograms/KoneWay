@@ -1,23 +1,16 @@
 package com.example.farmersinternational.presentationLayer.ViewModel
 
-import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.farmersinternational.dataLayer.model.FarmerWithProduct
-import com.example.farmersinternational.dataLayer.model.Product
-import com.example.farmersinternational.dataLayer.repository.OfflineFirstFarmersRepository
+import com.example.farmersinternational.dataLayer.domainModel.FarmerWithProduct
+import com.example.farmersinternational.dataLayer.domainModel.Product
 import com.example.farmersinternational.dataLayer.repository.OfflineFirstProductRepository
-import com.example.farmersinternational.presentationLayer.UiState.GeneralState
-import com.example.farmersinternational.presentationLayer.UiState.asGeneralState
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.WhileSubscribed
-import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import javax.inject.Inject
 import kotlin.time.Duration.Companion.seconds
@@ -53,7 +46,7 @@ fun  homeScreenUiState(
             farmerWithProduct =  getFarmersWithProductsStream
         )
     )
-
+//20 minutes
 }
 
 sealed interface HomeScreenUiState {

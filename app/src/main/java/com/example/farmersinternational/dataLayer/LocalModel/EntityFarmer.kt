@@ -1,9 +1,9 @@
-package com.example.farmersinternational.dataLayer.roomModel
+package com.example.farmersinternational.dataLayer.LocalModel
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.farmersinternational.dataLayer.model.Farmer
+import com.example.farmersinternational.dataLayer.domainModel.Farmer
 
 @Entity(tableName = "EntityFarmer")
 data class EntityFarmer(

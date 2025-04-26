@@ -1,22 +1,26 @@
-package com.example.farmersinternational.Core.DataModel
+package com.example.farmersinternational.dataLayer.buildDatabase
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.farmersinternational.Core.Database.Dao.FarmerDao
-import com.example.farmersinternational.Core.Database.Dao.OrderDao
-import com.example.farmersinternational.Core.Database.Dao.ProductDao
-import com.example.farmersinternational.Core.Database.Dao.UserDao
-import com.example.farmersinternational.Core.Database.model.EntityFarmer
-import com.example.farmersinternational.Core.Database.model.EntityOrder
-import com.example.farmersinternational.Core.Database.model.EntityProduct
-import com.example.farmersinternational.Core.Database.model.EntityUser
+import androidx.room.TypeConverters
+import com.example.farmersinternational.Extras.dateConverter
+import com.example.farmersinternational.dataLayer.dao.FarmerDao
+import com.example.farmersinternational.dataLayer.dao.OrderDao
+import com.example.farmersinternational.dataLayer.dao.ProductDao
+import com.example.farmersinternational.dataLayer.dao.UserDao
+import com.example.farmersinternational.dataLayer.LocalModel.EntityFarmer
+import com.example.farmersinternational.dataLayer.LocalModel.EntityOrder
+import com.example.farmersinternational.dataLayer.LocalModel.EntityProduct
+import com.example.farmersinternational.dataLayer.LocalModel.EntityUser
 
 @Database
     (entities = [EntityFarmer::class, EntityOrder::class, EntityProduct::class,
         EntityUser::class], version = 1)//or 7
-abstract class StructureOfLocalDatabase: RoomDatabase(){//room database file, which defines the structure etc
+
+@TypeConverters(dateConverter::class)
+abstract class StructureOfLocalDatabase: RoomDatabase(){
 
 abstract fun getFarmerDao(): FarmerDao
     abstract fun getOrderDao(): OrderDao

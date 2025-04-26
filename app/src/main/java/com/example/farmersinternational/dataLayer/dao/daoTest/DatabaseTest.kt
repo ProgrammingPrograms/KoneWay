@@ -1,15 +1,18 @@
-package com.example.farmersinternational.Core.Database.daoTest
+package com.example.farmersinternational.dataLayer.dao.daoTest
 
 import android.content.Context
 import androidx.room.Room
-import com.example.farmersinternational.Core.DataModel.StructureOfLocalDatabase
-import com.example.farmersinternational.Core.Database.Dao.FarmerDao
-import com.example.farmersinternational.Core.Database.Dao.OrderDao
-import com.example.farmersinternational.Core.Database.Dao.ProductDao
-import com.example.farmersinternational.Core.Database.Dao.UserDao
+import com.example.farmersinternational.dataLayer.buildDatabase.StructureOfLocalDatabase
+import com.example.farmersinternational.dataLayer.dao.FarmerDao
+import com.example.farmersinternational.dataLayer.dao.OrderDao
+import com.example.farmersinternational.dataLayer.dao.ProductDao
+import com.example.farmersinternational.dataLayer.dao.UserDao
 import org.junit.Before
 import androidx.test.core.app.ApplicationProvider
+import com.example.farmersinternational.dataLayer.domainModel.Order
+import kotlinx.coroutines.runBlocking
 import org.junit.After
+import org.junit.Test
 
 
 internal abstract class DatabaseTest {
@@ -38,5 +41,16 @@ fun setup() { //create tempdatabase for testing
     @After //do after each test
     fun destroyTemporaryDatabase() = temporaryDatabase.close()
 }
+    @Test
+    fun getOrderSummary(): Unit = runBlocking{
+        val order = Order(
+            orderId = 1,
+            userId = 2,
+            productId = 3,
+            price = 3.39,
+            date = 0719,
+        )
+orderDao.getOrderSummary()
+    }
 
 }

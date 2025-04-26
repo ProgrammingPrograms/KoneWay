@@ -1,6 +1,6 @@
-package com.example.farmersinternational.dataLayer.model
+package com.example.farmersinternational.dataLayer.domainModel
 
-import com.example.farmersinternational.dataLayer.roomModel.EntityFarmer
+import com.example.farmersinternational.dataLayer.LocalModel.EntityFarmer
 
 
 data class Farmer(

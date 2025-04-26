@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlinx.datetime.Instant
 import javax.inject.Inject
 
 data class AddOrderUiState(
@@ -17,7 +18,7 @@ data class AddOrderUiState(
     val userId: Long? = null,
     val productId: Long? = null,
     val price: Double = 0.0,
-    val date: Long? = null,  //business logic calculate the time
+    val date: Instant? = null,  //business logic calculate the time
     val isOrderCreated: Boolean = false
 
 
@@ -54,10 +55,3 @@ val _orderUiState = MutableStateFlow(AddOrderUiState())
     }
 
 }
-//black box method-
-//do =
-// Order to be generated based on
-//user selecting product(s)(button)
-//
-//outputs = CURRENT DATE/TIME
-//i

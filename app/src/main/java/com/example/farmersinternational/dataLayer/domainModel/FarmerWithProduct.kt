@@ -1,4 +1,4 @@
-package com.example.farmersinternational.dataLayer.model
+package com.example.farmersinternational.dataLayer.domainModel
 
 data class FarmerWithProduct(
     val farmer: Farmer,

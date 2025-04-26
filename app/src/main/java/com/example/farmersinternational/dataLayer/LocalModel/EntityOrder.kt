@@ -1,11 +1,11 @@
-package com.example.farmersinternational.dataLayer.roomModel
+package com.example.farmersinternational.dataLayer.LocalModel
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
-import com.example.farmersinternational.dataLayer.model.Order
-
+import com.example.farmersinternational.dataLayer.domainModel.Order
+import kotlinx.datetime.Instant
 
 
 @Entity(tableName = "EntityOrder", foreignKeys = [
@@ -19,13 +19,13 @@ ForeignKey(entity = EntityProduct::class,
     onDelete = ForeignKey.CASCADE)])
 
 data class EntityOrder(
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey(autoGenerate = false)
     val orderId: Long? = null,
     val userId: Long?= null,
-    val productId: Long?= null,
+    val productId: List<Long?>?= null,
     @ColumnInfo(defaultValue = "")
     val price: Double,
-    val date: Long?= null
+    val date: Instant?= null
 )
 fun EntityOrder.asExternalModel() = Order(
     orderId = orderId,

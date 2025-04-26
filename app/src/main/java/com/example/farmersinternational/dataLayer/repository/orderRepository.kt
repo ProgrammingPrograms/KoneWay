@@ -1,17 +1,14 @@
-package com.example.farmersinternational.Core.Repository
+package com.example.farmersinternational.dataLayer.repository
 
-import com.example.farmersinternational.Core.Database.Dao.OrderDao
-import com.example.farmersinternational.Core.Database.model.EntityFarmer
-import com.example.farmersinternational.Core.Database.model.EntityOrder
-import com.example.farmersinternational.Core.domainmodel.Order
+import com.example.farmersinternational.dataLayer.domainModel.Order
+import com.example.farmersinternational.dataLayer.domainModel.OrderWithUserAndProduct
 import kotlinx.coroutines.flow.Flow
 
 interface OrderRepository {
-    suspend fun insertOrIgnoreOrder(domainModel: Order): Long
-    suspend fun createOrUpdateOrder(domainModel: Order):Long
+    suspend fun insertOrIgnoreOrder(order: Order): Long
+    suspend fun createOrUpdateOrder(order: Order):Long
     fun getUserOrder(userId: Long): Flow<Order>
+    fun getOrderSummary(orderId: Long): Flow<OrderWithUserAndProduct>
+    fun getOrdersSummary(orderIds: Set<Long>):Flow<List<OrderWithUserAndProduct>>
     suspend fun  deleteUserOrder(orderId: Long)
-
-// this is the direct translation to the ui
-    //and because of that this only takes domeains that why
 }

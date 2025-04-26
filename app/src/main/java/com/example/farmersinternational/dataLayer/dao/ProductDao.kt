@@ -1,12 +1,12 @@
-package com.example.farmersinternational.Core.Database.Dao
+package com.example.farmersinternational.dataLayer.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Upsert
-import com.example.farmersinternational.Core.Database.model.EntityFarmer
-import com.example.farmersinternational.Core.Database.model.EntityProduct
+import com.example.farmersinternational.dataLayer.LocalModel.modelJoins.FarmerWithProductJoin
+import com.example.farmersinternational.dataLayer.LocalModel.EntityProduct
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -27,7 +27,10 @@ interface ProductDao {
             "ON " +
             "ENTITYFARMER.farmerId = EntityProduct.farmerId" +
             " WHERE ENTITYFARMER.farmerId IN (:farmerIds) ")
-    fun getProductsMainPage(farmerIds: Set<Long>) : Flow<Map<List<EntityFarmer>, List<EntityProduct>>>
+    fun getProductsMainPage(farmerIds: Set<Long>) : Flow<List<FarmerWithProductJoin>>
+
+    @Query("SELECT imageUrl,name,isOrganic,isGmo FROM ENTITYPRODUCT WHERE productId IN (:productIds)")
+    fun getProducts(productIds: Set<Long>): Flow<List<EntityProduct>>
 
 
     @Query("SELECT" +
@@ -37,7 +40,7 @@ interface ProductDao {
             "ON ENTITYPRODUCT.farmerId = ENTITYFARMER.farmerId WHERE ENTITYFARMER.farmerId IN (:farmerIds)" +
             "ORDER BY " +
             "ENTITYPRODUCT.fruitOrVegetable DESC")
-    fun getProduceSortedByFruitsOrVegetables(farmerIds: Set<Long>) : Flow<Map<List<EntityFarmer>, List<EntityProduct>>>
+    fun getProductSortByFruitsOrVegetables(farmerIds: Set<Long>) : Flow<List<FarmerWithProductJoin>>
 
 
     @Query("UPDATE" +
@@ -46,7 +49,7 @@ interface ProductDao {
             "WHERE ENTITYPRODUCT.farmerId = :farmerId " +
             "AND ENTITYPRODUCT.farmerId " +
             "IN (SELECT ENTITYFARMER.farmerId FROM ENTITYFARMER " +
-            "WHERE ENTITYFARMER.farmerId = farmerId)")
+            "WHERE ENTITYFARMER.farmerId = :farmerId)")
     fun updateImageForProduct(farmerId: Long,newUrl: String)
 
 
@@ -63,6 +66,6 @@ interface ProductDao {
             "ORDER BY " +
             "ENTITYPRODUCT.IsGmo DESC," +
             "ENTITYPRODUCT.IsOrganic DESC ")
-    fun getProductsSortByGmo(farmerIds: Set<Long>, productIds: Set<Long>): Flow<Map<List<EntityFarmer>, List<EntityProduct>>>
+    fun getProductsSortByGmo(farmerIds: Set<Long>, productIds: Set<Long>): Flow<List<FarmerWithProductJoin>>
 
 }

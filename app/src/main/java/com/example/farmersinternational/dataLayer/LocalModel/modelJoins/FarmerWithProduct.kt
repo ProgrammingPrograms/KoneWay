@@ -1,10 +1,10 @@
-package com.example.farmersinternational.dataLayer.roomModel.embeddedClass
+package com.example.farmersinternational.dataLayer.LocalModel.modelJoins
 
 import androidx.room.Embedded
-import com.example.farmersinternational.dataLayer.roomModel.EntityFarmer
-import com.example.farmersinternational.dataLayer.roomModel.EntityProduct
-import com.example.farmersinternational.dataLayer.roomModel.asExternalModel
-import com.example.farmersinternational.dataLayer.model.FarmerWithProduct
+import com.example.farmersinternational.dataLayer.LocalModel.EntityFarmer
+import com.example.farmersinternational.dataLayer.LocalModel.EntityProduct
+import com.example.farmersinternational.dataLayer.LocalModel.asExternalModel
+import com.example.farmersinternational.dataLayer.domainModel.FarmerWithProduct
 
 class FarmerWithProductJoin(
     @Embedded val farmer: EntityFarmer,

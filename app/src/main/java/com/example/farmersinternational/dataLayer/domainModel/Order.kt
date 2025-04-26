@@ -1,13 +1,14 @@
-package com.example.farmersinternational.dataLayer.model
+package com.example.farmersinternational.dataLayer.domainModel
 
-import com.example.farmersinternational.dataLayer.roomModel.EntityOrder
+import com.example.farmersinternational.dataLayer.LocalModel.EntityOrder
+import kotlinx.datetime.Instant
 
 data class Order(
     val orderId: Long? = null,
     val userId: Long?= null,
-    val productId: Long?= null,
+    val productId: List<Long?>? = null,
     val price: Double,
-    val date: Long?= null
+    val date: Instant?= null
 )
 
 fun Order.asEntityModel() = EntityOrder(

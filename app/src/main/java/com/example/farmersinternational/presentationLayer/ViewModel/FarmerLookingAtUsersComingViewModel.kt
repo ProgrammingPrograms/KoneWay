@@ -35,8 +35,9 @@ private fun usersWhoBuyUiState(orderIds:Set<Long>,
                                offlineFirstOrderRepository: OfflineFirstOrderRepository): Flow<UsersWhoBuyUiState> {//outstide of viewmodel
     val usersWhoBuyStream = offlineFirstOrderRepository.getOrdersSummary(orderIds)
     return flowOf(UsersWhoBuyUiState.Success(
-        orderWithUserAndProduct = usersWhoBuyStream
-    ))
+        orderWithUserAndProduct = usersWhoBuyStream // how to implement the  Error
+    )
+    )
 
 }
 

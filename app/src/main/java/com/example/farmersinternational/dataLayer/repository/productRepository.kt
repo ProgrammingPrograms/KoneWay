@@ -1,17 +1,16 @@
-package com.example.farmersinternational.Core.Repository
+package com.example.farmersinternational.dataLayer.repository
 
-import com.example.farmersinternational.Core.Database.model.EntityFarmer
-import com.example.farmersinternational.Core.Database.model.EntityProduct
-import com.example.farmersinternational.Core.domainmodel.Farmer
-import com.example.farmersinternational.Core.domainmodel.Product
+import com.example.farmersinternational.dataLayer.domainModel.Product
+import com.example.farmersinternational.dataLayer.domainModel.FarmerWithProduct
 import kotlinx.coroutines.flow.Flow
 
 interface ProductRepository {
-    suspend fun insertOrIgnoreProduct(domainModel: Product): Long
-    suspend fun createOrUpdateProduct(domainModel: Product): Long
-    fun getProductsMainPage(farmerIds: Set<Long>) : Flow<Map<List<Farmer>, List<Product>>>
-    fun getProduceSortedByFruitsOrVegetables(farmerIds: Set<Long>) : Flow<Map<List<Farmer>, List<Product>>>
+    suspend fun insertOrIgnoreProduct(product: Product): Long
+    suspend fun createOrUpdateProduct(product: Product): Long
+    fun getProducts(productIds: Set<Long>): Flow<List<Product>>
+    fun getProductsMainPage(farmerIds: Set<Long>) : Flow<List<FarmerWithProduct>>
+    fun getProductSortByFruitsOrVegetables(farmerIds: Set<Long>) : Flow<List<FarmerWithProduct>>
     fun updateImageForProduct(farmerId: Long,newUrl: String)
-    fun getProductsSortByGmo(farmerIds: Set<Long>, productIds: Set<Long>): Flow<Map<List<Farmer>, List<Product>>>
+    fun getProductsSortByGmo(farmerIds: Set<Long>, productIds: Set<Long>): Flow<List<FarmerWithProduct>>
 
-}//this is what is interacting with the ui the repository repositories dont have etities for extra seperation of concerns
+}

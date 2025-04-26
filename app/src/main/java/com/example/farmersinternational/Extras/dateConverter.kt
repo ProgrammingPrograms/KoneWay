@@ -7,12 +7,12 @@ import kotlinx.datetime.Instant
 class dateConverter {
 
     @TypeConverter
-    fun stringToTime(time: Instant):Long {
+    fun instantToRoom(time: Instant):Long {
         return time.toEpochMilliseconds()
     }
 
     @TypeConverter
-    fun timeToString(time:Long):Instant  {
+    fun roomToInstant(time:Long):Instant  {
         return Instant.fromEpochMilliseconds(time)
     }
 }

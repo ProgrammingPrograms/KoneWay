@@ -1,6 +1,6 @@
-package com.example.farmersinternational.dataLayer.model
+package com.example.farmersinternational.dataLayer.domainModel
 
-import com.example.farmersinternational.dataLayer.roomModel.EntityProduct
+import com.example.farmersinternational.dataLayer.LocalModel.EntityProduct
 
 data class Product(
     val productId: Long?= null,

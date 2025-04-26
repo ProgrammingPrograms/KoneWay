@@ -1,4 +1,4 @@
-package com.example.farmersinternational.dataLayer.dependancyInjection
+package com.example.farmersinternational.dataLayer.di
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

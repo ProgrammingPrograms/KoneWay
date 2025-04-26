@@ -1,8 +1,8 @@
-package com.example.farmersinternational.dataLayer.roomModel
+package com.example.farmersinternational.dataLayer.LocalModel
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.farmersinternational.dataLayer.model.User
+import com.example.farmersinternational.dataLayer.domainModel.User
 
 @Entity
 data class EntityUser(

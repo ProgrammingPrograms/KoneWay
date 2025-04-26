@@ -1,9 +1,9 @@
-package com.example.farmersinternational.dataLayer.roomModel
+package com.example.farmersinternational.dataLayer.LocalModel
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
-import com.example.farmersinternational.dataLayer.model.Product
+import com.example.farmersinternational.dataLayer.domainModel.Product
 
 @Entity(tableName = "EntityProduct",
     foreignKeys = [ForeignKey(entity = EntityFarmer::class,

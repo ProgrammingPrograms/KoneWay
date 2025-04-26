@@ -1,12 +1,12 @@
-package com.example.farmersinternational.Core.Repository
+package com.example.farmersinternational.dataLayer.repository
 
-import com.example.farmersinternational.Core.Database.Dao.FarmerDao
-import com.example.farmersinternational.Core.Database.model.EntityFarmer
-import com.example.farmersinternational.Core.Database.model.EntityProduct
-import com.example.farmersinternational.Core.Database.model.asExternalModel
-import com.example.farmersinternational.Core.domainmodel.Farmer
-import com.example.farmersinternational.Core.domainmodel.Product
-import com.example.farmersinternational.Core.domainmodel.asEntityModel
+import com.example.farmersinternational.dataLayer.dao.FarmerDao
+import com.example.farmersinternational.dataLayer.LocalModel.EntityFarmer
+import com.example.farmersinternational.dataLayer.LocalModel.EntityProduct
+import com.example.farmersinternational.dataLayer.LocalModel.asExternalModel
+import com.example.farmersinternational.dataLayer.domainModel.Farmer
+import com.example.farmersinternational.dataLayer.domainModel.Product
+import com.example.farmersinternational.dataLayer.domainModel.asEntityModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -16,11 +16,11 @@ import javax.inject.Inject
 
 class OfflineFirstFarmersRepository @Inject constructor(private val farmerdao: FarmerDao): FarmerRepository {
 
-override suspend fun insertOrIgnore(modelFarmer: Farmer): Long =
-        farmerdao.insertOrIgnore(modelFarmer.asEntityModel())
+override suspend fun insertOrIgnore(farmer: Farmer): Long =
+        farmerdao.insertOrIgnore(farmer.asEntityModel())
 
-    override suspend fun createOrUpdateFarmerAccount(modelFarmer: Farmer): Long =
-        farmerdao.createOrUpdateFarmerAccount(modelFarmer.asEntityModel())
+    override suspend fun createOrUpdateFarmerAccount(farmer: Farmer): Long =
+        farmerdao.createOrUpdateFarmerAccount(farmer.asEntityModel())
 
     override fun getFarmerById(farmerId: Long): Flow<Farmer> =
         farmerdao.getFarmerById(farmerId).map {
@@ -31,12 +31,12 @@ override suspend fun insertOrIgnore(modelFarmer: Farmer): Long =
             it.map(EntityFarmer::asExternalModel)
         }
 
-    override fun getFarmersProducts(farmerId: Long):Flow<List<Product>> =
+    override fun getFarmersProducts(farmerId: Long):Flow<List<Product>> = //getproductsusecase depends on this
         farmerdao.getFarmersProducts(farmerId).map {
             it.map(EntityProduct::asExternalModel)
         }
 
-    override fun getFarmersProductsSortedByGmo(farmerId: Long): Flow<List<Product>> =
+    override fun getFarmersProductsSortedByGmo(farmerId: Long): Flow<List<Product>> = //sowillthis
         farmerdao.getFarmersProductsSortedByGmo(farmerId).map {
             it.map(EntityProduct::asExternalModel)
         }

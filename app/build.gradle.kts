@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     id("kotlin-kapt")
     kotlin("plugin.serialization") version "2.1.10"
+    id("com.google.dagger.hilt.android")
 
 
 
@@ -35,6 +36,7 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+
     }
     kotlinOptions {
         jvmTarget = "11"
@@ -45,8 +47,13 @@ android {
 }
 
 dependencies {
-    val room_version = "2.6.1"
+    implementation(libs.androidx.appcompat)
+    implementation(libs.junit.junit)
+    implementation(libs.core.ktx)
+    implementation(libs.kotlinx.datetime)
 
+    testImplementation (libs.kotlinx.coroutines.test)
+    val room_version = "2.6.1"
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
     implementation(libs.androidx.room.runtime)
@@ -69,5 +76,7 @@ dependencies {
     implementation(platform("io.github.jan-tennert.supabase:bom:3.1.2"))
     implementation("io.github.jan-tennert.supabase:storage-kt:3.1.2")
     implementation("io.ktor:ktor-client-android:3.1.1")
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
 
 }

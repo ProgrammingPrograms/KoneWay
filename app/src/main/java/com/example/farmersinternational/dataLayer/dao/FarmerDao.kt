@@ -1,4 +1,4 @@
-package com.example.farmersinternational.Core.Database.Dao
+package com.example.farmersinternational.dataLayer.dao
 
 import androidx.room.Dao
 import androidx.room.Delete
@@ -6,8 +6,8 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Upsert
-import com.example.farmersinternational.Core.Database.model.EntityFarmer
-import com.example.farmersinternational.Core.Database.model.EntityProduct
+import com.example.farmersinternational.dataLayer.LocalModel.EntityFarmer
+import com.example.farmersinternational.dataLayer.LocalModel.EntityProduct
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -25,7 +25,7 @@ interface FarmerDao {
             " ENTITYFARMER " +
             "WHERE " +
             "farmerId = :farmerId")
-    fun getFarmerById(farmerId: Long): Flow<EntityFarmer>
+    fun getFarmerById(farmerId: Long): Flow<EntityFarmer> //
 
     @Query("SELECT * FROM " +
             "ENTITYFARMER " +

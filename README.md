@@ -7,10 +7,10 @@
 <h2 align="left">KoneWay</h2>
 
 ###
-
+-a
 <br clear="both">
 
-<h2 align="left">connecting city people with local farmers to buy fresh, homegrown fruit<br><br>This app lets city residents buy fresh fruit directly from local farmers—no middlemen involved. It's perfect for people who want to skip the supermarket and get high-quality, non-GMO produce they can trust. 🍏🍓<br><br>What’s next?<br>This is just the start! I’ll be updating the app regularly and adding new features to make it even better. I’m really looking forward to hearing your thoughts and feedback as I keep working on it.<br><br>If you’re into supporting local farmers or just love fresh fruit, take a look and let me know what you think!</h2>
+<h2 align="left">connecting city people with local farmers to buy fresh, homegrown fruit<br><br>This app lets city residents buy fresh fruit directly from local farmers—no middlemen involved. It's perfect for people who want to skip the supermarket and get high-quality, non-GMO produce they can trust. 🍏🍓<br>
 
 ###
 

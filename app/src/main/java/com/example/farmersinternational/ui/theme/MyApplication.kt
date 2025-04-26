@@ -1,4 +1,4 @@
-package com.example.farmersinternational.presentationLayer.ViewModel
+package com.example.farmersinternational.ui.theme
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

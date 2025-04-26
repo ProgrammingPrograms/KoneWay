@@ -1,6 +1,6 @@
 package com.example.farmersinternational.presentationLayer.UiState
 
-import com.example.farmersinternational.dataLayer.model.User
+import com.example.farmersinternational.dataLayer.domainModel.User
 
 sealed interface FarmersMultipleCustomersUiState {
     data object Loading: FarmersMultipleCustomersUiState

@@ -1,43 +1,38 @@
-package com.example.farmersinternational.Core.Repository
+package com.example.farmersinternational.dataLayer.repository
 
-import com.example.farmersinternational.Core.Database.Dao.ProductDao
-import com.example.farmersinternational.Core.Database.model.EntityFarmer
-import com.example.farmersinternational.Core.Database.model.EntityProduct
-import com.example.farmersinternational.Core.Database.model.asExternalModel
-import com.example.farmersinternational.Core.domainmodel.Farmer
-import com.example.farmersinternational.Core.domainmodel.Product
-import com.example.farmersinternational.Core.domainmodel.asEntityModel
+import com.example.farmersinternational.dataLayer.LocalModel.modelJoins.asExternalModel
+import com.example.farmersinternational.dataLayer.LocalModel.modelJoins.FarmerWithProductJoin
+import com.example.farmersinternational.dataLayer.dao.ProductDao
+import com.example.farmersinternational.dataLayer.domainModel.Product
+import com.example.farmersinternational.dataLayer.domainModel.asEntityModel
+import com.example.farmersinternational.dataLayer.domainModel.FarmerWithProduct
+import com.example.farmersinternational.dataLayer.LocalModel.EntityProduct
+import com.example.farmersinternational.dataLayer.LocalModel.asExternalModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
-//specifies weather or not its offline or online
 class OfflineFirstProductRepository @Inject constructor(private val productDao: ProductDao):ProductRepository {
 
-    override suspend fun insertOrIgnoreProduct(domainModel: Product): Long =
-        productDao.insertOrIgnorePoduct(domainModel.asEntityModel())
+    override suspend fun insertOrIgnoreProduct(product: Product): Long =
+        productDao.insertOrIgnorePoduct(product.asEntityModel())
 
 
-    override suspend fun createOrUpdateProduct(domainModel: Product): Long =
-        productDao.createOrUpdateProduct(domainModel.asEntityModel())
+    override suspend fun createOrUpdateProduct(product: Product): Long =
+        productDao.createOrUpdateProduct(product.asEntityModel())
 
-    override fun getProductsMainPage(farmerIds: Set<Long>): Flow<Map<List<Farmer>, List<Product>>> =
-        productDao.getProductsMainPage(farmerIds).map {
-map -> mapOf(
-    
-)
-        }
+    override fun getProductsMainPage(farmerIds: Set<Long>): Flow<List<FarmerWithProduct>> =
+        productDao.getProductsMainPage(farmerIds).map {it.map(FarmerWithProductJoin::asExternalModel)}
 
-    override fun getProduceSortedByFruitsOrVegetables(far
-}merIds: Set<Long>): Flow<Map<List<Farmer>, List<Product>>> {productDao
+    override fun getProducts(productIds: Set<Long>): Flow<List<Product>>   =
+        productDao.getProducts(productIds).map { it.map(EntityProduct::asExternalModel) }
 
-    override fun updateImageForProduct(farmerId: Long, newUrl: String) {
-        productDao
+    override fun getProductSortByFruitsOrVegetables(farmerIds: Set<Long>): Flow<List<FarmerWithProduct>> =
+        productDao.getProductSortByFruitsOrVegetables(farmerIds).map { it.map(FarmerWithProductJoin::asExternalModel)}
 
-        override fun getProductsSortByGmo(
-            farmerIds: Set<Long>,
-            productIds: Set<Long>,
-        ): Flow<Map<List<Farmer>, List<Product>>> {
-            productDao
+    override fun updateImageForProduct(farmerId: Long, newUrl: String) =
+        productDao.updateImageForProduct(farmerId, newUrl)
+
+        override fun getProductsSortByGmo(farmerIds: Set<Long>, productIds: Set<Long>): Flow<List<FarmerWithProduct>>
+        = productDao.getProductsSortByGmo(farmerIds, productIds).map { it.map(FarmerWithProductJoin::asExternalModel) }
 
         }
-    }

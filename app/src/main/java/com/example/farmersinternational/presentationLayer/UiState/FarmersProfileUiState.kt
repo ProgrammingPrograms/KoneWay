@@ -1,6 +1,6 @@
 package com.example.farmersinternational.presentationLayer.UiState
 
-import com.example.farmersinternational.dataLayer.model.Product
+import com.example.farmersinternational.dataLayer.domainModel.Product
 
 sealed  interface FarmersProfileUiState {
     data class Success(val farmersWithProducts: List<Product> = emptyList()):FarmersProfileUiState
