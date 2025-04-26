@@ -1,6 +1,6 @@
 package com.example.farmersinternational.domainlayer
 
-import com.example.farmersinternational.dataLayer.model.User
+import com.example.farmersinternational.dataLayer.domainModel.User
 import com.example.farmersinternational.dataLayer.repository.UserRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
