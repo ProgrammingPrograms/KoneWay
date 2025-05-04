@@ -9,7 +9,8 @@ import com.example.farmersinternational.dataLayer.buildDatabase.StructureOfLocal
 import com.example.farmersinternational.dataLayer.dao.UserDao
 import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.flow.firstOrNull
+import kotlinx.coroutines.test.runTest
 import kotlinx.io.IOException
 import org.junit.After
 import org.junit.Before
@@ -17,7 +18,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
-class SimpleEntityQueriesTest {
+class EntityQueriesTest {
 
     private lateinit var userDao: UserDao
     private lateinit var db: StructureOfLocalDatabase
@@ -37,8 +38,7 @@ class SimpleEntityQueriesTest {
     }
 
     @Test
-    @Throws(Exception::class)
-     fun writeUserAndReadInList() = runBlocking{
+     fun writeUserAndRead() = runTest{
         val user =  EntityUser(
             userId = 1,
             fullName = "john",
@@ -47,7 +47,8 @@ class SimpleEntityQueriesTest {
             notification = 1
         )
         userDao.insertOrIgnoreUser(user)
-        val getem = userDao.getUserWhoBuying(1).first()//flow so you have to collect
-        assertEquals(user, getem)
+        val getem = userDao.getUserWhoBuying(1).firstOrNull()
+        assertEquals("Expected User but got Null", getem)
+        assertEquals(user.fullName, getem?.fullName)
     }
 }
